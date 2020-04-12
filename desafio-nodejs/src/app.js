@@ -19,9 +19,9 @@ app.post("/repositories", (request, response) => {
   var time = "";
   console.time(time);
   var {title,url,techs} = request.body
-
-  repositories.push({id:uuid(), title:title,url:url,techs:techs,likes:0})
-  response.json({message:"repositorie inserted successfully"})
+  var repository = {id:uuid(), title:title,url:url,techs:techs,likes:0}
+  repositories.push(repository)
+  response.json(repository)
   console.timeEnd(time);
   console.log(time);
 });
